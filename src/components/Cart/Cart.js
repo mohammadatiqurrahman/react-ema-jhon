@@ -2,9 +2,15 @@ import React from 'react';
 import './Cart.css'
 
 const Cart = (props) => {
+    console.log(props)
     let total = 0;
+    let totalQuantity = 0;
     for(const product of props.cart){
-        total = total+product.price;
+        if(!product.quantity){
+            product.quantity = 1;
+        }
+        total = total + product.price*product.quantity;
+        totalQuantity = totalQuantity + product.quantity;
     }
     let shippingCost = 0;
     for(const product of props.cart){
@@ -14,7 +20,7 @@ const Cart = (props) => {
         <div className="style-orderSummary">
             <div className="order-summary">
             <h3>Order Summary</h3>
-            <p>Order Items: {props.cart.length}</p>
+            <p>Order Items: {totalQuantity}</p>
             </div>
             <div>
             <table>

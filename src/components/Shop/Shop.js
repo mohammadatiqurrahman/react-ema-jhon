@@ -17,20 +17,24 @@ const Shop = () => {
         if(products.length){
             const existingItem = getStoredCart();
         const storedCart = [];
-        // console.log(existingItem)
+        // console.log(existingItem)/
         for(const key in existingItem){
             const addedProduct = products.find(product=>product.key===key);
-            console.log(key,addedProduct)
-            storedCart.push(addedProduct)
+            if(addedProduct){
+                const quantity = existingItem[key];
+                addedProduct.quantity = quantity;
+                storedCart.push(addedProduct);
+            }
+            
         }
         setCart(storedCart);
         }
         
-    },[products])
+    },[products]);
     const handleAddToCart =(product) =>{   
-            const newCart = [...cart,product]
-            setCart(newCart)
-            addToDb(product.key)
+            const newCart = [...cart,product];
+            setCart(newCart);
+            addToDb(product.key);
            }
     return (
         <div className="shop-container">
