@@ -1,3 +1,10 @@
 .order-summary{
     text-align: center;
 }
+.style-orderSummary{
+    background-color: antiquewhite;
+    margin-top: 15px;
+    margin-right: 10px;
+    padding: 25px;
+    border-radius: 5px;
+}

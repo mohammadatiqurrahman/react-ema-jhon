@@ -6,12 +6,12 @@ const Cart = (props) => {
     for(const product of props.cart){
         total = total+product.price;
     }
-    let shipping = 0;
-    for(const shippingg of props.cart){
-        shipping = shipping+shippingg.shipping;
+    let shippingCost = 0;
+    for(const product of props.cart){
+        shippingCost = shippingCost+product.shipping;
     }
     return (
-        <div>
+        <div className="style-orderSummary">
             <div className="order-summary">
             <h3>Order Summary</h3>
             <p>Order Items: {props.cart.length}</p>
@@ -20,7 +20,7 @@ const Cart = (props) => {
             <table>
                 <tr>
                     <td>Shipping & Handling: </td>
-                    <td> ${shipping.toFixed(2)}</td>
+                    <td> ${shippingCost.toFixed(2)}</td>
                 </tr>
                 <tr>
                     <td>Total Before Tax: </td>
@@ -28,7 +28,7 @@ const Cart = (props) => {
                 </tr>
                 <tr>
                     <td><h3>Order Total: </h3></td>
-                    <td><h3>$ {(total+shipping).toFixed(2)}</h3></td>
+                    <td><h3>$ {(total+shippingCost).toFixed(2)}</h3></td>
                 </tr>
             </table>
             </div>
