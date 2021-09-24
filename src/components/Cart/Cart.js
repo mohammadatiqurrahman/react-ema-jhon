@@ -18,7 +18,8 @@ const Cart = (props) => {
             </div>
             <div>
             <table>
-                <tr>
+               <tbody>
+               <tr>
                     <td>Shipping & Handling: </td>
                     <td> ${shippingCost.toFixed(2)}</td>
                 </tr>
@@ -30,6 +31,7 @@ const Cart = (props) => {
                     <td><h3>Order Total: </h3></td>
                     <td><h3>$ {(total+shippingCost).toFixed(2)}</h3></td>
                 </tr>
+               </tbody>
             </table>
             </div>
         </div>
