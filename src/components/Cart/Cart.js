@@ -2,7 +2,6 @@ import React from 'react';
 import './Cart.css'
 
 const Cart = (props) => {
-    console.log(props)
     let total = 0;
     let totalQuantity = 0;
     for(const product of props.cart){
@@ -17,7 +16,7 @@ const Cart = (props) => {
     //     shippingCost = shippingCost+product.shipping;
     // }
     const shipping = total>0 ? 15 : 0;
-    const tax = (total+shipping)*.10
+    const tax = (total+shipping)*.10;
     return (
         <div className="style-orderSummary">
             <div className="order-summary">
@@ -45,6 +44,7 @@ const Cart = (props) => {
                 </tr>
                </tbody>
             </table>
+            {props.children}
             </div>
         </div>
     );
